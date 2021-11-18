@@ -1,4 +1,4 @@
-package br.com.giovane.factory.exemplo1;
+package br.com.giovane.factory.example2;
 
 public class Dolar implements Moeda {
     @Override
