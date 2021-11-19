@@ -87,12 +87,8 @@ abstract class EnderecadorDecorator implements Enderecador {
 
 class EnderecadorCaixaAlta extends EnderecadorDecorator {
 
-    // instancia da Classe EnderecadorSimples
-    Enderecador enderecador;
-
     public EnderecadorCaixaAlta(Enderecador enderecador) {
         super(enderecador);
-        this.enderecador = enderecador;
     }
 
     // metodo proprio (chama a instancia de endereco e transforma para caixa)

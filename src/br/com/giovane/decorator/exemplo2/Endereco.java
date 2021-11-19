@@ -11,7 +11,11 @@ class Main {
                 "UF",
                 "94175-140");
 
+        // como os decorators compartilham da mesma interface,
+        // apenas precisamos atribuir na mesma variavel o outro decorator
         Enderecador enderecador = new EnderecadorSimples();
+
+        // acrescentando mais funcionalidade ao objeto sem precisar mecher no objeto em si
         enderecador = new EnderecadorCaixaAlta(enderecador);
         enderecador = new EnderecadorComBorda(enderecador);
 

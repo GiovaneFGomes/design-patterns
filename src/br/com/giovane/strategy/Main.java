@@ -5,12 +5,28 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
 
+        BigDecimal valor = new BigDecimal("10");
+        Compra compra = new Compra(valor);
+
+        compra.processarCompra(new PagamentoCartaoCredito());
+        compra.processarCompra(new PagamentoCartaoDebito());
+
+        System.out.println(compra);
+
     }
 }
 
 // -----------------------------------------------------------------------------------
 
-// contexto
+/*
+   * Estratégia - Interface (geralmente)
+   * Estratégia - Concreta (implementação)
+   * Contexto   - quem utiliza a estrategia
+ */
+
+// -----------------------------------------------------------------------------------
+
+// Contexto
 class Compra {
 
     BigDecimal valor;
@@ -27,6 +43,7 @@ class Compra {
 
 // -----------------------------------------------------------------------------------
 
+// Estrategia
 // Ela quem define o contrato da nossa estrategia
 interface PagamentoStrategy {
     void pagar(BigDecimal valor);
@@ -34,24 +51,24 @@ interface PagamentoStrategy {
 
 // -----------------------------------------------------------------------------------
 
-// Estrategia - concreta
+// Estrategia - Concreta 1
 class PagamentoCartaoCredito implements PagamentoStrategy {
 
     @Override
     public void pagar(BigDecimal valor) {
-        System.out.println("Pagou no crédito " + valor);
+        System.out.println("Pagou no crédito R$ " + valor);
     }
 
 }
 
 // -----------------------------------------------------------------------------------
 
-// Estrategia - concreta
+// Estrategia - Concreta 2
 class PagamentoCartaoDebito implements PagamentoStrategy {
 
     @Override
     public void pagar(BigDecimal valor) {
-        System.out.println("Pagou no débito " + valor);
+        System.out.println("Pagou no débito R$ " + valor);
     }
 
 }
